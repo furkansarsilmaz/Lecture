@@ -1,4 +1,7 @@
-notes = {
+class lecture():
+    def __init__(self,point):
+        self.point = point
+        self.notes = {
 "FF":44,
 "DD":49,
 "DC":59,
@@ -8,19 +11,15 @@ notes = {
 "BA":89,
 "AA":100,
 }
-loop = True
-while loop:
-    try:
-        point = int(input("Enter your exam point : "))
-        for key, value in notes.items():
-            if value >= point:
+    def calculate(self):
+        for key,values in self.notes.items():
+            if values >= self.point:
                 print(f"Your note is {key}")
                 break
-        again = input("Y for retry, N for quit : ").lower()
-        if again == "n" :
-            loop = False
-            print("Goodbye")
-            break
 
-    except ValueError:
-        print("Please give a number")
+
+
+
+if __name__ == "__main__":
+    point = int(input("What is your note : "))
+    lecture(point).calculate()
